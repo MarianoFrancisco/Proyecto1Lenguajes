@@ -76,7 +76,6 @@ public class NumeroDecimal {
         estadoPresente=0;
         while((lectura)&&iterador<linea.length()&&resultado!=4){
             if(Character.isSpaceChar(caract[iterador])){
-                JOptionPane.showMessageDialog(null, iterador);
                 if(iterador==0){
                 }else{
                     lectura=false;
