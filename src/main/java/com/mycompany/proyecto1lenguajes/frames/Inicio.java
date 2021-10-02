@@ -10,6 +10,7 @@ import com.mycompany.proyecto1lenguajes.Automatas.Identificador;
 import static com.mycompany.proyecto1lenguajes.Controladores.MovilizadorDatos.movilizar;
 import com.mycompany.proyecto1lenguajes.Archivos.CargaArchivo;
 import com.mycompany.proyecto1lenguajes.Archivos.ExportarArchivo;
+import com.mycompany.proyecto1lenguajes.Automatas.Agrupacion;
 import com.mycompany.proyecto1lenguajes.Automatas.NumeroDecimal;
 import com.mycompany.proyecto1lenguajes.Automatas.Operador;
 import com.mycompany.proyecto1lenguajes.Automatas.Puntuacion;
@@ -304,7 +305,15 @@ public class Inicio extends javax.swing.JFrame {
                     while(movilizar.getCaracteresUsados()<linea.length()){
                         CodigoCondicionalRepetidoAutomata.codigoAutomataRepitencia(instanciadores.getLinea(), instanciadores.getVerificadorLinea(), instanciadores.getReduccionLinea(), movilizar.getCaracteresUsados(), MovimientoEstado);
                     }
+                }else if(comprobarPunto.equals("(")|comprobarPunto.equals(")")|comprobarPunto.equals("[")|comprobarPunto.equals("]")|comprobarPunto.equals("{")|comprobarPunto.equals("}")){
+                    Agrupacion.agrupacionInicio(linea,MovimientoEstado);
+                    reduccionLinea=linea.substring(movilizar.getCaracteresUsados(), linea.length());
+                    pasadorDatos(linea,reduccionLinea,verificadorLinea);
+                    while(movilizar.getCaracteresUsados()<linea.length()){
+                        CodigoCondicionalRepetidoAutomata.codigoAutomataRepitencia(instanciadores.getLinea(), instanciadores.getVerificadorLinea(), instanciadores.getReduccionLinea(), movilizar.getCaracteresUsados(), MovimientoEstado);
+                    }
                 }
+                
             }
             if(movilizar.getCondiconalError()==1){
                 ReporteErrores.completarTabla(errorEstablecido, ReporteError);

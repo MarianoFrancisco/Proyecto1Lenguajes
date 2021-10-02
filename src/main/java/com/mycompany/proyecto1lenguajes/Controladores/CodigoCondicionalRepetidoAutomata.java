@@ -35,6 +35,9 @@ public class CodigoCondicionalRepetidoAutomata {
         }else if(comprobarPunto.equals(".")|comprobarPunto.equals(",")|comprobarPunto.equals(";")|comprobarPunto.equals(":")){
             Puntuacion.puntuacionInicio(reduccionLinea, MovimientoEstado);
             reduccionLinea=linea.substring(movilizar.getCaracteresUsados(), linea.length());
+        }else if(comprobarPunto.equals("(")|comprobarPunto.equals(")")|comprobarPunto.equals("[")|comprobarPunto.equals("]")|comprobarPunto.equals("{")|comprobarPunto.equals("}")){
+            Agrupacion.agrupacionInicio(reduccionLinea, MovimientoEstado);
+            reduccionLinea=linea.substring(movilizar.getCaracteresUsados(), linea.length());
         }
         instanciadores.setLinea(linea);
         instanciadores.setReduccionLinea(reduccionLinea);
