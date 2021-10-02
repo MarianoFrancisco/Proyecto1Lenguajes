@@ -5,7 +5,8 @@
  */
 package com.mycompany.proyecto1lenguajes;
 
-import com.mycompany.proyecto1lenguajes.RegistroTablas.MovilizadorDatos;
+import com.mycompany.proyecto1lenguajes.Controladores.DatosInstanciadores;
+import com.mycompany.proyecto1lenguajes.Controladores.MovilizadorDatos;
 import com.mycompany.proyecto1lenguajes.frames.Inicio;
 
 
@@ -24,6 +25,7 @@ public class PracticaLenguajes {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 MovilizadorDatos.crearMovilizador();
+                DatosInstanciadores.crearDatosInstanciadores();
                 new Inicio().setVisible(true);
             }
         });

@@ -7,7 +7,7 @@ package com.mycompany.proyecto1lenguajes.CargadorObjetos;
 
 import com.mycompany.proyecto1lenguajes.AlmacenadorReportes.CrearError;
 import com.mycompany.proyecto1lenguajes.AlmacenadorReportes.*;
-import static com.mycompany.proyecto1lenguajes.RegistroTablas.MovilizadorDatos.movilizar;
+import static com.mycompany.proyecto1lenguajes.Controladores.MovilizadorDatos.movilizar;
 import static com.mycompany.proyecto1lenguajes.frames.Inicio.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;

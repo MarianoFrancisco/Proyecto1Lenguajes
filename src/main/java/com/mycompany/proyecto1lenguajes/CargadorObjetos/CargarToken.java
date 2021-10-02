@@ -6,7 +6,7 @@
 package com.mycompany.proyecto1lenguajes.CargadorObjetos;
 
 import com.mycompany.proyecto1lenguajes.AlmacenadorReportes.*;
-import static com.mycompany.proyecto1lenguajes.RegistroTablas.MovilizadorDatos.movilizar;
+import static com.mycompany.proyecto1lenguajes.Controladores.MovilizadorDatos.movilizar;
 import static com.mycompany.proyecto1lenguajes.frames.Inicio.tokenEstablecido;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -24,6 +24,9 @@ public class CargarToken {
         String lexema=movilizar.getCadenaUsada();
         String fila=movilizar.getFila()+"";
         String columna=procesoReduccionColumna+"";
+        if (columna.equals("0")) {
+            columna="1";
+        }
         String espacio[]={nombreToken,lexema,fila,columna};
         ReporteTokensObjeto tokens = CrearToken.crearToken(espacio);
         tokenEstablecido.add(tokens);//agreagamos un nuevo token

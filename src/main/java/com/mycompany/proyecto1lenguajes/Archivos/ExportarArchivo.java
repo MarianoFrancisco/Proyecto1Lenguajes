@@ -16,7 +16,7 @@ import javax.swing.JTextArea;
  * @author Mariano
  */
 public class ExportarArchivo {
-    public static void exportarParaExel(JTextArea CargaArchivo) {
+    public static void exportarArchivo(JTextArea CargaArchivo) {
         try {
             JFileChooser archivo = new JFileChooser(System.getProperty("C:"));
             archivo.showSaveDialog(null);

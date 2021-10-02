@@ -7,10 +7,14 @@ package com.mycompany.proyecto1lenguajes.frames;
 
 import com.mycompany.proyecto1lenguajes.AlmacenadorReportes.*;
 import com.mycompany.proyecto1lenguajes.Automatas.Identificador;
-import static com.mycompany.proyecto1lenguajes.RegistroTablas.MovilizadorDatos.movilizar;
+import static com.mycompany.proyecto1lenguajes.Controladores.MovilizadorDatos.movilizar;
 import com.mycompany.proyecto1lenguajes.Archivos.CargaArchivo;
 import com.mycompany.proyecto1lenguajes.Archivos.ExportarArchivo;
+import com.mycompany.proyecto1lenguajes.Automatas.NumeroDecimal;
+import com.mycompany.proyecto1lenguajes.Automatas.Operador;
 import com.mycompany.proyecto1lenguajes.CargadorObjetos.*;
+import com.mycompany.proyecto1lenguajes.Controladores.CodigoCondicionalRepetidoAutomata;
+import static com.mycompany.proyecto1lenguajes.Controladores.DatosInstanciadores.instanciadores;
 import com.mycompany.proyecto1lenguajes.RegistroTablas.*;
 import com.mycompany.proyecto1lenguajes.RegistroTablas.ReporteErrores;
 import java.awt.Color;
@@ -255,18 +259,8 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        errorEstablecido = new ArrayList<>();  
-        lexemaEstablecido = new ArrayList<>();   
-        tokenEstablecido = new ArrayList<>(); 
-        ReporteErrores.completarTabla(errorEstablecido, ReporteError);
-        RecuentoLexemas.completarTabla(lexemaEstablecido, RecuentoLexema);
-        movilizar.setCondiconalError(0);
-        MovimientoEstado.setText("");
-        movilizar.setCaracteresUsados(0);
-        movilizar.setCadenaUsada("");
-        movilizar.setFila(0);
-        movilizar.setColumna(0);
-        String linea,reduccionLinea,lector;
+        inicializadorValores();
+        String linea,reduccionLinea;
         String texto=CargaArchivo.getText();
         Reader leer = new StringReader(texto);
         int contador=0;
@@ -280,22 +274,28 @@ public class Inicio extends javax.swing.JFrame {
                 movilizar.setCaracteresUsados(0);
                 movilizar.setCadenaUsada("");
                 verificadorLinea=linea.charAt(0);
+                String comprobarPunto=Character.toString(verificadorLinea);
                 if(Character.isLetter(verificadorLinea)){
                     Identificador.identificadorInicio(linea,MovimientoEstado);
                     reduccionLinea=linea.substring(movilizar.getCaracteresUsados(), linea.length());
-                    JOptionPane.showMessageDialog(null, reduccionLinea);
+                    pasadorDatos(linea,reduccionLinea,verificadorLinea);
                     while(movilizar.getCaracteresUsados()<linea.length()){
-                        verificadorLinea=reduccionLinea.charAt(0);
-                        JOptionPane.showMessageDialog(null, movilizar.getCaracteresUsados());
-                        if(Character.isLetter(verificadorLinea)){
-                            Identificador.identificadorInicio(reduccionLinea,MovimientoEstado);
-                            reduccionLinea=linea.substring(movilizar.getCaracteresUsados(), linea.length());
-                        }else{
-                            movilizar.setCaracteresUsados(linea.length());
-                        }
+                        CodigoCondicionalRepetidoAutomata.codigoAutomataRepitencia(instanciadores.getLinea(), instanciadores.getVerificadorLinea(), instanciadores.getReduccionLinea(), movilizar.getCaracteresUsados(), MovimientoEstado);
                     }
-                }else{
-                    JOptionPane.showMessageDialog(null, "Tarado xd");
+                }else if(Character.isDigit(verificadorLinea)){
+                    NumeroDecimal.numeroDecimalInicio(linea,MovimientoEstado);
+                    reduccionLinea=linea.substring(movilizar.getCaracteresUsados(), linea.length());
+                    pasadorDatos(linea,reduccionLinea,verificadorLinea);
+                    while(movilizar.getCaracteresUsados()<linea.length()){
+                        CodigoCondicionalRepetidoAutomata.codigoAutomataRepitencia(instanciadores.getLinea(), instanciadores.getVerificadorLinea(), instanciadores.getReduccionLinea(), movilizar.getCaracteresUsados(), MovimientoEstado);
+                    }
+                }else if(comprobarPunto.equals("+")|comprobarPunto.equals("-")|comprobarPunto.equals("*")|comprobarPunto.equals("/")|comprobarPunto.equals("%")){
+                    Operador.operadorInicio(linea,MovimientoEstado);
+                    reduccionLinea=linea.substring(movilizar.getCaracteresUsados(), linea.length());
+                    pasadorDatos(linea,reduccionLinea,verificadorLinea);
+                    while(movilizar.getCaracteresUsados()<linea.length()){
+                        CodigoCondicionalRepetidoAutomata.codigoAutomataRepitencia(instanciadores.getLinea(), instanciadores.getVerificadorLinea(), instanciadores.getReduccionLinea(), movilizar.getCaracteresUsados(), MovimientoEstado);
+                    }
                 }
             }
             if(movilizar.getCondiconalError()==1){
@@ -309,7 +309,25 @@ public class Inicio extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jButton2ActionPerformed
-
+    private void inicializadorValores(){
+        errorEstablecido = new ArrayList<>();  
+        lexemaEstablecido = new ArrayList<>();   
+        tokenEstablecido = new ArrayList<>(); 
+        ReporteErrores.completarTabla(errorEstablecido, ReporteError);
+        RecuentoLexemas.completarTabla(lexemaEstablecido, RecuentoLexema);
+        ReporteTokens.completarTabla(tokenEstablecido, ReportToken);
+        movilizar.setCondiconalError(0);
+        MovimientoEstado.setText("");
+        movilizar.setCaracteresUsados(0);
+        movilizar.setCadenaUsada("");
+        movilizar.setFila(0);
+        movilizar.setColumna(0);
+    }
+    public void pasadorDatos(String linea, String reduccionLinea, char verificadorLinea){
+        instanciadores.setLinea(linea);
+        instanciadores.setReduccionLinea(reduccionLinea);
+        instanciadores.setVerificadorLinea(verificadorLinea);
+    }
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         String valorBusqueda,textoArea;
         valorBusqueda= buscarText.getText();
@@ -334,12 +352,12 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        ExportarArchivo.exportarParaExel(CargaArchivo);//enviamos parametro para guardar archivo texto
+        ExportarArchivo.exportarArchivo(CargaArchivo);//enviamos parametro para guardar archivo texto
     }//GEN-LAST:event_jButton4ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JTextArea CargaArchivo;
-    private javax.swing.JTextArea MovimientoEstado;
+    public static javax.swing.JTextArea MovimientoEstado;
     public static javax.swing.JTable RecuentoLexema;
     public static javax.swing.JTable ReportToken;
     public static javax.swing.JTable ReporteError;

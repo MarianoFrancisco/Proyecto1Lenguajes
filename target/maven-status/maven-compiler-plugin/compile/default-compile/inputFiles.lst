@@ -2,8 +2,10 @@ C:\Users\Maria\OneDrive\Documentos\NetBeansProjects\Proyecto1Lenguajes\src\main\
 C:\Users\Maria\OneDrive\Documentos\NetBeansProjects\Proyecto1Lenguajes\src\main\java\com\mycompany\proyecto1lenguajes\AlmacenadorReportes\CrearLexema.java
 C:\Users\Maria\OneDrive\Documentos\NetBeansProjects\Proyecto1Lenguajes\src\main\java\com\mycompany\proyecto1lenguajes\Archivos\CargaArchivo.java
 C:\Users\Maria\OneDrive\Documentos\NetBeansProjects\Proyecto1Lenguajes\src\main\java\com\mycompany\proyecto1lenguajes\Automatas\Puntuacion.java
+C:\Users\Maria\OneDrive\Documentos\NetBeansProjects\Proyecto1Lenguajes\src\main\java\com\mycompany\proyecto1lenguajes\Controladores\CodigoCondicionalRepetidoAutomata.java
 C:\Users\Maria\OneDrive\Documentos\NetBeansProjects\Proyecto1Lenguajes\src\main\java\com\mycompany\proyecto1lenguajes\Automatas\Identificador.java
 C:\Users\Maria\OneDrive\Documentos\NetBeansProjects\Proyecto1Lenguajes\src\main\java\com\mycompany\proyecto1lenguajes\AlmacenadorReportes\ReporteErrorObjeto.java
+C:\Users\Maria\OneDrive\Documentos\NetBeansProjects\Proyecto1Lenguajes\src\main\java\com\mycompany\proyecto1lenguajes\Controladores\MovilizadorDatos.java
 C:\Users\Maria\OneDrive\Documentos\NetBeansProjects\Proyecto1Lenguajes\src\main\java\com\mycompany\proyecto1lenguajes\AlmacenadorReportes\CrearToken.java
 C:\Users\Maria\OneDrive\Documentos\NetBeansProjects\Proyecto1Lenguajes\src\main\java\com\mycompany\proyecto1lenguajes\PracticaLenguajes.java
 C:\Users\Maria\OneDrive\Documentos\NetBeansProjects\Proyecto1Lenguajes\src\main\java\com\mycompany\proyecto1lenguajes\AlmacenadorReportes\RecuentoLexemaObjeto.java
@@ -16,7 +18,7 @@ C:\Users\Maria\OneDrive\Documentos\NetBeansProjects\Proyecto1Lenguajes\src\main\
 C:\Users\Maria\OneDrive\Documentos\NetBeansProjects\Proyecto1Lenguajes\src\main\java\com\mycompany\proyecto1lenguajes\RegistroTablas\ReporteTokens.java
 C:\Users\Maria\OneDrive\Documentos\NetBeansProjects\Proyecto1Lenguajes\src\main\java\com\mycompany\proyecto1lenguajes\CargadorObjetos\CargarToken.java
 C:\Users\Maria\OneDrive\Documentos\NetBeansProjects\Proyecto1Lenguajes\src\main\java\com\mycompany\proyecto1lenguajes\frames\Inicio.java
-C:\Users\Maria\OneDrive\Documentos\NetBeansProjects\Proyecto1Lenguajes\src\main\java\com\mycompany\proyecto1lenguajes\RegistroTablas\MovilizadorDatos.java
 C:\Users\Maria\OneDrive\Documentos\NetBeansProjects\Proyecto1Lenguajes\src\main\java\com\mycompany\proyecto1lenguajes\Automatas\NumeroDecimal.java
 C:\Users\Maria\OneDrive\Documentos\NetBeansProjects\Proyecto1Lenguajes\src\main\java\com\mycompany\proyecto1lenguajes\CargadorObjetos\CargarLexema.java
 C:\Users\Maria\OneDrive\Documentos\NetBeansProjects\Proyecto1Lenguajes\src\main\java\com\mycompany\proyecto1lenguajes\AlmacenadorReportes\ReporteTokensObjeto.java
+C:\Users\Maria\OneDrive\Documentos\NetBeansProjects\Proyecto1Lenguajes\src\main\java\com\mycompany\proyecto1lenguajes\Controladores\DatosInstanciadores.java

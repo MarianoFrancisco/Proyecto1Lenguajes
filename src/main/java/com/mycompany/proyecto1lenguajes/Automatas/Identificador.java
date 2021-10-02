@@ -5,11 +5,12 @@
  */
 package com.mycompany.proyecto1lenguajes.Automatas;
 
-import static com.mycompany.proyecto1lenguajes.RegistroTablas.MovilizadorDatos.movilizar;
+import static com.mycompany.proyecto1lenguajes.Controladores.MovilizadorDatos.movilizar;
 import static com.mycompany.proyecto1lenguajes.frames.Inicio.*;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
 /**
@@ -62,14 +63,18 @@ public class Identificador {
         estadoPresente=0;
         while((lectura)&&iterador<linea.length()&&resultado!=2){
             if(Character.isSpaceChar(caract[iterador])){
-                lectura=false;
+                JOptionPane.showMessageDialog(null, iterador);
+                if(iterador==0){
+                }else{
+                    lectura=false;
+                }
             }else{
                 estadoIr= conseguirSiguiente(estadoPresente,comprobarExistencia(caract[iterador]));
                 movimiento.setText(movimiento.getText()+"Me movi de estado --> "+estadoPresente+" hacia --> "+estadoIr+" con caracter: "+caract[iterador]+"\n");
                 estadoPresente=estadoIr;
         }
         if(resultado==2){
-            movimiento.setText(movimiento.getText()+"Error");
+            movimiento.setText(movimiento.getText()+"Error \n");
             enviarReporte=1;
         }  
         identificadorTotal=identificadorTotal+Character.toString(caract[iterador]);
