@@ -12,6 +12,7 @@ import com.mycompany.proyecto1lenguajes.Archivos.CargaArchivo;
 import com.mycompany.proyecto1lenguajes.Archivos.ExportarArchivo;
 import com.mycompany.proyecto1lenguajes.Automatas.NumeroDecimal;
 import com.mycompany.proyecto1lenguajes.Automatas.Operador;
+import com.mycompany.proyecto1lenguajes.Automatas.Puntuacion;
 import com.mycompany.proyecto1lenguajes.CargadorObjetos.*;
 import com.mycompany.proyecto1lenguajes.Controladores.CodigoCondicionalRepetidoAutomata;
 import static com.mycompany.proyecto1lenguajes.Controladores.DatosInstanciadores.instanciadores;
@@ -291,6 +292,13 @@ public class Inicio extends javax.swing.JFrame {
                     }
                 }else if(comprobarPunto.equals("+")|comprobarPunto.equals("-")|comprobarPunto.equals("*")|comprobarPunto.equals("/")|comprobarPunto.equals("%")){
                     Operador.operadorInicio(linea,MovimientoEstado);
+                    reduccionLinea=linea.substring(movilizar.getCaracteresUsados(), linea.length());
+                    pasadorDatos(linea,reduccionLinea,verificadorLinea);
+                    while(movilizar.getCaracteresUsados()<linea.length()){
+                        CodigoCondicionalRepetidoAutomata.codigoAutomataRepitencia(instanciadores.getLinea(), instanciadores.getVerificadorLinea(), instanciadores.getReduccionLinea(), movilizar.getCaracteresUsados(), MovimientoEstado);
+                    }  
+                }else if(comprobarPunto.equals(".")|comprobarPunto.equals(",")|comprobarPunto.equals(";")|comprobarPunto.equals(".")){
+                    Puntuacion.puntuacionInicio(linea,MovimientoEstado);
                     reduccionLinea=linea.substring(movilizar.getCaracteresUsados(), linea.length());
                     pasadorDatos(linea,reduccionLinea,verificadorLinea);
                     while(movilizar.getCaracteresUsados()<linea.length()){

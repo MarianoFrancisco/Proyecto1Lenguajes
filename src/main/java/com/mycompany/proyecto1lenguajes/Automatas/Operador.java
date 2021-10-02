@@ -21,7 +21,7 @@ import javax.swing.JTextArea;
  */
 public class Operador {
     //creamos matriz, 0 es +, 1 es -,2 es *, 3 es /, 4 es%
-    //estado 0 es 0, estado 1 es 1, 2 es error
+    //estado 0 es 0, estado 1 es 1, 5 es error
     static int matriz[][]=new int [2][5];
     String identificadorTotal="";
     {
