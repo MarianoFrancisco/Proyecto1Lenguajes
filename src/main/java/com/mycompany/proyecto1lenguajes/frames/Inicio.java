@@ -75,11 +75,11 @@ public class Inicio extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         CargaArchivo = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        cargarArchivo = new javax.swing.JButton();
+        analizarTexto = new javax.swing.JButton();
+        buscarCadena = new javax.swing.JButton();
         buscarText = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
+        guardarArchivo = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         MovimientoEstado = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
@@ -111,46 +111,46 @@ public class Inicio extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 650, 270));
 
-        jButton1.setFont(new java.awt.Font("Engravers MT", 0, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Cargar Archivo");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        cargarArchivo.setFont(new java.awt.Font("Engravers MT", 0, 12)); // NOI18N
+        cargarArchivo.setForeground(new java.awt.Color(0, 0, 0));
+        cargarArchivo.setText("Cargar Archivo");
+        cargarArchivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                cargarArchivoActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
+        jPanel1.add(cargarArchivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
 
-        jButton2.setFont(new java.awt.Font("Engravers MT", 0, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jButton2.setText("ANALIZAR TEXTO");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        analizarTexto.setFont(new java.awt.Font("Engravers MT", 0, 12)); // NOI18N
+        analizarTexto.setForeground(new java.awt.Color(0, 0, 0));
+        analizarTexto.setText("ANALIZAR TEXTO");
+        analizarTexto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                analizarTextoActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, -1));
+        jPanel1.add(analizarTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, -1));
 
-        jButton3.setFont(new java.awt.Font("Engravers MT", 0, 12)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 0, 0));
-        jButton3.setText("Buscar cadena");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        buscarCadena.setFont(new java.awt.Font("Engravers MT", 0, 12)); // NOI18N
+        buscarCadena.setForeground(new java.awt.Color(0, 0, 0));
+        buscarCadena.setText("Buscar cadena");
+        buscarCadena.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                buscarCadenaActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 10, -1, -1));
+        jPanel1.add(buscarCadena, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 10, -1, -1));
         jPanel1.add(buscarText, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 10, 180, 20));
 
-        jButton4.setFont(new java.awt.Font("Engravers MT", 0, 12)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(0, 0, 0));
-        jButton4.setText("Guardar Archivo");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        guardarArchivo.setFont(new java.awt.Font("Engravers MT", 0, 12)); // NOI18N
+        guardarArchivo.setForeground(new java.awt.Color(0, 0, 0));
+        guardarArchivo.setText("Guardar Archivo");
+        guardarArchivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                guardarArchivoActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, -1, -1));
+        jPanel1.add(guardarArchivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, -1, -1));
 
         MovimientoEstado.setColumns(20);
         MovimientoEstado.setRows(5);
@@ -241,7 +241,7 @@ public class Inicio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void cargarArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarArchivoActionPerformed
         //filechooser para abrir o guardar archivos
         JFileChooser archivoEleccion = new JFileChooser();
         int eleccion = archivoEleccion.showOpenDialog(this);//variable para seleccionar
@@ -258,9 +258,9 @@ public class Inicio extends javax.swing.JFrame {
                 Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_cargarArchivoActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void analizarTextoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_analizarTextoActionPerformed
         inicializadorValores();
         String linea,reduccionLinea;
         String texto=CargaArchivo.getText();
@@ -325,7 +325,7 @@ public class Inicio extends javax.swing.JFrame {
             Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_analizarTextoActionPerformed
     private void inicializadorValores(){
         errorEstablecido = new ArrayList<>();  
         lexemaEstablecido = new ArrayList<>();   
@@ -345,32 +345,44 @@ public class Inicio extends javax.swing.JFrame {
         instanciadores.setReduccionLinea(reduccionLinea);
         instanciadores.setVerificadorLinea(verificadorLinea);
     }
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        String valorBusqueda,textoArea;
+    private void buscarCadenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarCadenaActionPerformed
+        String valorBusqueda,textoArea,almacenadorPalabra;
         valorBusqueda= buscarText.getText();
-        if (valorBusqueda.length() >= 1) {    
-        DefaultHighlighter.DefaultHighlightPainter highlightPainter = new DefaultHighlighter.DefaultHighlightPainter(Color.RED);
-        Highlighter h = CargaArchivo.getHighlighter();
-        h.removeAllHighlights();
-        textoArea=CargaArchivo.getText();
-        Pattern p = Pattern.compile("(?i)" + valorBusqueda);
-        Matcher m = p.matcher(textoArea);
-        while (m.find()) {
-                try {
-                    h.addHighlight(m.start(), m.end(), highlightPainter);
-                } catch (BadLocationException ex) {
-                    JOptionPane.showMessageDialog(null, "Error a resaltar");
+        int localizador=0;
+        if (valorBusqueda.length() >= 1) {       
+            DefaultHighlighter.DefaultHighlightPainter highlightPainter = new DefaultHighlighter.DefaultHighlightPainter(Color.RED);
+            Highlighter h = CargaArchivo.getHighlighter();
+            h.removeAllHighlights();
+            textoArea=CargaArchivo.getText();
+            for (int i = 0; i < textoArea.length(); i++) {
+                if(textoArea.charAt(i)==valorBusqueda.charAt(0)){
+                    almacenadorPalabra="";
+                    localizador=i;
+                    for (int j = 0; j < valorBusqueda.length(); j++) {
+                        if(textoArea.charAt(i)==valorBusqueda.charAt(j)){ 
+                            almacenadorPalabra=almacenadorPalabra+Character.toString(valorBusqueda.charAt(j));
+                            if (valorBusqueda.equals(almacenadorPalabra)) {
+                                try {
+                                    h.addHighlight(localizador, localizador+valorBusqueda.length(), highlightPainter);
+                                } catch (BadLocationException ex) {
+                                    Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                            i++;      
+                        }
+                    }
                 }
             }
+            
         } else {
             JOptionPane.showMessageDialog(null, "Primero ingresa una cadena para ser leída");
         }
         //CargaArchivo.setText(CargaArchivo.getText().replaceAll(valorBusqueda, espacio));
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_buscarCadenaActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void guardarArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarArchivoActionPerformed
         ExportarArchivo.exportarArchivo(CargaArchivo);//enviamos parametro para guardar archivo texto
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_guardarArchivoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JTextArea CargaArchivo;
@@ -378,11 +390,11 @@ public class Inicio extends javax.swing.JFrame {
     public static javax.swing.JTable RecuentoLexema;
     public static javax.swing.JTable ReportToken;
     public static javax.swing.JTable ReporteError;
+    private javax.swing.JButton analizarTexto;
+    private javax.swing.JButton buscarCadena;
     private javax.swing.JTextField buscarText;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton cargarArchivo;
+    private javax.swing.JButton guardarArchivo;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
