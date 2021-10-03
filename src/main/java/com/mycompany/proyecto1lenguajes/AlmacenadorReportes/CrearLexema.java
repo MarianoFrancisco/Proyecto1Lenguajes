@@ -11,6 +11,7 @@ package com.mycompany.proyecto1lenguajes.AlmacenadorReportes;
  */
 public class CrearLexema {
     public static RecuentoLexemaObjeto crearLexema(String[] espacio){
+        //Creamos un retorno de tipo recuento lexema con parametros tipo arreglo
         RecuentoLexemaObjeto lexema=null;
         //creamos reporte lexema con datos y convertimos string a int        
         lexema= new RecuentoLexemaObjeto(espacio[0],espacio[1],Integer.parseInt(espacio[2]));

@@ -18,11 +18,11 @@ import java.util.ArrayList;
  */
 public class CargarError {
     public ArrayList<ReporteErrorObjeto> cargarReporte() throws FileNotFoundException,IOException,ClassNotFoundException{
-        //definimos los espacios que ocupara en nuestro error al ser creado
+        //definimos los espacios que ocupara en nuestro error al ser creado y estrucamos array list para reporte error
         String fila=movilizar.getFila()+"";
         String columna=movilizar.getCaracteresUsados()+"";
         String espacio[]={movilizar.getCadenaUsada(),fila,columna};
-        ReporteErrorObjeto error = CrearError.crearError(espacio);
+        ReporteErrorObjeto error = CrearError.crearError(espacio);//ingresamos espacios al reporte error
         errorEstablecido.add(error);//agreagamos un nuevo error
         return errorEstablecido;
     }

@@ -10,16 +10,17 @@ package com.mycompany.proyecto1lenguajes.AlmacenadorReportes;
  * @author Mariano
  */
 public class ReporteTokensObjeto {
+    //Creamos variables
     String nombreToken, lexema;
     int fila,columna;
-
+    //Realizamos constructor para reporte token
     public ReporteTokensObjeto(String nombreToken, String lexema, int fila, int columna) {
         this.nombreToken = nombreToken;
         this.lexema = lexema;
         this.fila = fila;
         this.columna = columna;
     }
-
+    //Creamos set y get para modificar y llamar datos
     public String getNombreToken() {
         return nombreToken;
     }

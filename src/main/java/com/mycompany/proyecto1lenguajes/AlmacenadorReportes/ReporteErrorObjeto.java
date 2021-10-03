@@ -10,15 +10,16 @@ package com.mycompany.proyecto1lenguajes.AlmacenadorReportes;
  * @author Mariano
  */
 public class ReporteErrorObjeto {
-     private String cadenaError;
+    //Creamos variables
+    private String cadenaError;
     private int fila,columna;
-
+    //Realizamos constructor para reporte error
     public ReporteErrorObjeto(String cadenaError, int fila, int columna) {
         this.cadenaError = cadenaError;
         this.fila = fila;
         this.columna = columna;
     }
-
+    //Creamos set y get para modificar y llamar datos
     public String getCadenaError() {
         return cadenaError;
     }

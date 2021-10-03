@@ -10,22 +10,24 @@ package com.mycompany.proyecto1lenguajes.Controladores;
  * @author Mariano
  */
 public class MovilizadorDatos {
-    private int fila,columna,caracteresUsados,condiconalError;
+    //creamos variables
+    private int fila,columna,caracteresUsados,condiconalError,hayEspacio;
     private String cadenaUsada,tokenProviniente;
     public static MovilizadorDatos movilizar;
+    //constructor para movilizarme mis datos entre clases
 
-    public MovilizadorDatos(int fila, int columna, int caracteresUsados, int condiconalError, String cadenaUsada, String tokenProviniente) {
+    public MovilizadorDatos(int fila, int columna, int caracteresUsados, int condiconalError, int hayEspacio, String cadenaUsada, String tokenProviniente) {
         this.fila = fila;
         this.columna = columna;
         this.caracteresUsados = caracteresUsados;
         this.condiconalError = condiconalError;
+        this.hayEspacio = hayEspacio;
         this.cadenaUsada = cadenaUsada;
         this.tokenProviniente = tokenProviniente;
     }
+    
 
-    
-    
-    
+    //creamos gets y sets para modificar y hacer llamados
     public int getFila() {
         return fila;
     }
@@ -73,9 +75,17 @@ public class MovilizadorDatos {
     public void setCondiconalError(int condiconalError) {
         this.condiconalError = condiconalError;
     }
+
+    public int getHayEspacio() {
+        return hayEspacio;
+    }
+
+    public void setHayEspacio(int hayEspacio) {
+        this.hayEspacio = hayEspacio;
+    }
     
-    
+    //estructuramos creador de un valor MovilizadorDatos inicializandolo
     public static void crearMovilizador(){
-         movilizar= new MovilizadorDatos(0,0,0,0,"","");
+         movilizar= new MovilizadorDatos(0,0,0,0,0,"","");
     }
 }

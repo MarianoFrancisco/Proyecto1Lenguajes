@@ -10,15 +10,16 @@ package com.mycompany.proyecto1lenguajes.AlmacenadorReportes;
  * @author Mariano
  */
 public class RecuentoLexemaObjeto {
+    //Creamos variables
     String lexema,token;
     int cantidad;
-
+    //Realizamos constructor para recuento lexema
     public RecuentoLexemaObjeto(String lexema, String token, int cantidad) {
         this.lexema = lexema;
         this.token = token;
         this.cantidad = cantidad;
     }
-
+    //Creamos set y get para modificar y llamar datos
     public String getLexema() {
         return lexema;
     }

@@ -12,7 +12,6 @@ import static com.mycompany.proyecto1lenguajes.frames.Inicio.cargarToken;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
 /**
@@ -23,7 +22,7 @@ public class Operador {
     //creamos matriz, 0 es +, 1 es -,2 es *, 3 es /, 4 es%
     //estado 0 es 0, estado 1 es 1, 5 es error
     static int matriz[][]=new int [2][5];
-    String identificadorTotal="";
+    String operadorTotal="";
     {
         matriz[0][0]=1;
         matriz[0][1]=1;
@@ -36,6 +35,7 @@ public class Operador {
         matriz[1][3]=1;
         matriz[1][4]=1;
     }
+    //inicializamos variables
     boolean lectura=true;
     int caracter=0, iterador = 0,estadoPresente=0, estadoIr=0,resultado=0,enviarReporte=0;//enteros
     char [] caract;//caracter
@@ -48,7 +48,7 @@ public class Operador {
     }
     public int conseguirSiguiente(int estadoPasable,int caracter){
         resultado=5;
-        //verificamos caracter
+        //verificamos caracter menor igual a 4
         if(caracter>=0&&caracter<=4){
             resultado = matriz[estadoPasable][caracter];
         }   
@@ -57,6 +57,7 @@ public class Operador {
     public int comprobarExistencia(char caracter){
         resultado=5;
         String comprobarPunto=Character.toString(caracter);
+        //verificamos si existe en nuestro abecedario los datos y asignamos valor
         if(comprobarPunto.equals("+")){
                 resultado=0;
         }else if(comprobarPunto.equals("-")){
@@ -71,36 +72,47 @@ public class Operador {
         return resultado;
     }
     public void inicializacion(String linea,JTextArea movimiento){
-        
+        //reseteamos variables
+        movilizar.setHayEspacio(0);
         enviarReporte=0;
-        identificadorTotal="";
+        operadorTotal="";
         iterador=0;
         caract=linea.toCharArray();//formato matriz
         estadoPresente=0;
         while((lectura)&&iterador<linea.length()&&resultado!=5){
+            //puede acceder únicamente si cumple con tener letras y estar en el abecedario
             if(Character.isSpaceChar(caract[iterador])){
+                //si tiene espacio finalizamos proceso
                 if(iterador==0){
                 }else{
                     lectura=false;
+                    movilizar.setHayEspacio(1);
                 }
             }else{
+                //llamamos al estado donde se va y pasamos caracter en determinado valor y el estado donde nos encontramos
                 estadoIr= conseguirSiguiente(estadoPresente,comprobarExistencia(caract[iterador]));
+                //mensaje de movilidad
                 movimiento.setText(movimiento.getText()+"Me movi de estado --> "+estadoPresente+" hacia --> "+estadoIr+" con caracter: "+caract[iterador]+"\n");
                 estadoPresente=estadoIr;
         }
         if(resultado==5){
-            movimiento.setText(movimiento.getText()+"Error \n");
+            //si obtenemos error notificamos y modificamos que acceda a tabla error
+            movimiento.setText(movimiento.getText()+"------------Error------------ \n");
             enviarReporte=1;
         }  
-        identificadorTotal=identificadorTotal+Character.toString(caract[iterador]);
+        //estructuramos cadena usada
+        operadorTotal=operadorTotal+Character.toString(caract[iterador]);
         
         iterador++;
         }
+        movimiento.setText(movimiento.getText()+"------------ Al usar "+operadorTotal+" ----------\n");
+        //modificamos valores a enviar a tablas
         movilizar.setColumna(iterador);
         movilizar.setCaracteresUsados(movilizar.getCaracteresUsados()+iterador);
-        movilizar.setCadenaUsada(identificadorTotal.replaceAll(" ", ""));
+        movilizar.setCadenaUsada(operadorTotal.replaceAll(" ", ""));
         if(enviarReporte==1){
             try {
+                //cargamos reporte de error
                 cargarError.cargarReporte();
                 movilizar.setCondiconalError(1);
             } catch (IOException ex) {
@@ -111,6 +123,7 @@ public class Operador {
         }else{
             movilizar.setTokenProviniente("Operador");
             try {
+                //cargamos reporte tabla lexema y token
                 cargarLexema.cargarLexema();
                 cargarToken.cargarToken();
             } catch (IOException ex) {

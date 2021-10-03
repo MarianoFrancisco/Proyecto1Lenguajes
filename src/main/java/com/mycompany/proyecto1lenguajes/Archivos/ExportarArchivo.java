@@ -18,9 +18,11 @@ import javax.swing.JTextArea;
 public class ExportarArchivo {
     public static void exportarArchivo(JTextArea CargaArchivo) {
         try {
-            JFileChooser archivo = new JFileChooser(System.getProperty("C:"));
+            // creamos metodo con text area de parametro
+            JFileChooser archivo = new JFileChooser(System.getProperty("C:"));//escogemos el archivo a ller
             archivo.showSaveDialog(null);
             if (archivo.getSelectedFile() != null) {
+                //si seleccionamos el archivo escribimos en el text area y notificamos exito
                 try (FileWriter guardado = new FileWriter(archivo.getSelectedFile())) {
                 guardado.write(CargaArchivo.getText());
                 JOptionPane.showMessageDialog(null, "El archivo fue guardado con éxito en la ruta establecida");

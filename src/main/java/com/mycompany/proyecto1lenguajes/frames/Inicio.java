@@ -22,14 +22,13 @@ import com.mycompany.proyecto1lenguajes.RegistroTablas.ReporteErrores;
 import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.text.BadLocationException;
@@ -45,17 +44,18 @@ public class Inicio extends javax.swing.JFrame {
     /**
      * Creates new form Inicio
      */
-    public static CargarError cargarError;
-    public static CargarLexema cargarLexema;
-    public static CargarToken cargarToken;
+    public static CargarError cargarError;//creamos carga error
+    public static CargarLexema cargarLexema;//creamos carga lexema
+    public static CargarToken cargarToken;//creamos carga token
     public static ArrayList<ReporteErrorObjeto> errorEstablecido;//indicamos un array list de error para leer los archivos
     public static ArrayList<RecuentoLexemaObjeto> lexemaEstablecido;//indicamos un array list de lexema para leer los archivos
     public static ArrayList<ReporteTokensObjeto> tokenEstablecido;//indicamos un array list de token para leer los archivos
     public Inicio() {
-        initComponents();
-        crearReportes();
+        initComponents();//iniciar componentes
+        crearReportes();//llamado metodo crear reportes
         this.setLocationRelativeTo(null);//Centramos nuestro frame
     }
+    //Creamos metodo para crear cargas
     public void crearReportes(){
         this.cargarError = new CargarError();  
         this.cargarLexema = new CargarLexema();
@@ -249,6 +249,7 @@ public class Inicio extends javax.swing.JFrame {
         if (eleccion == JFileChooser.APPROVE_OPTION) {
             File archivo = archivoEleccion.getSelectedFile();//seleccionamos file para fileReader, agarramos el seleccionado
             try {
+                //llamos la clase carga archivo e ingresamos parametros
                 CargaArchivo carga = new CargaArchivo();
                 carga.leer(archivo, CargaArchivo);
             } catch (IOException ex) {
@@ -261,63 +262,95 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_cargarArchivoActionPerformed
 
     private void analizarTextoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_analizarTextoActionPerformed
-        inicializadorValores();
+        inicializadorValores();//método inicializador de valores
+        //creamos variables
         String linea,reduccionLinea;
         String texto=CargaArchivo.getText();
-        Reader leer = new StringReader(texto);
         int contador=0;
+        int verificadorEspacio=0,eliminadorWhile=1;
         char verificadorLinea;
+        //convertimos el texto para lectura
+        Reader leer = new StringReader(texto);
         BufferedReader leerTA = new BufferedReader(leer);
         try {
+            //mientras existe linea leerá
             while ((linea = leerTA.readLine()) != null) {
+                //reseteamos componentes de datos
                 contador++;
+                verificadorEspacio=0;
+                eliminadorWhile=1;
                 movilizar.setFila(contador);
                 movilizar.setColumna(0);
                 movilizar.setCaracteresUsados(0);
                 movilizar.setCadenaUsada("");
-                verificadorLinea=linea.charAt(0);
-                String comprobarPunto=Character.toString(verificadorLinea);
+                verificadorLinea=linea.charAt(0);//obtenemos valor valor posicion 0 de linea
+                String comprobarPunto=Character.toString(verificadorLinea);//pasamos char a string 
+                //si es letra ingresa a automata identificador 
                 if(Character.isLetter(verificadorLinea)){
                     Identificador.identificadorInicio(linea,MovimientoEstado);
                     reduccionLinea=linea.substring(movilizar.getCaracteresUsados(), linea.length());
-                    pasadorDatos(linea,reduccionLinea,verificadorLinea);
-                    while(movilizar.getCaracteresUsados()<linea.length()){
+                    pasadorDatos(linea,reduccionLinea,verificadorLinea);//sirve para enviar datos a instanciador de repitencia
+                    while(movilizar.getCaracteresUsados()<linea.length()){//repetimos instancia de automatas
                         CodigoCondicionalRepetidoAutomata.codigoAutomataRepitencia(instanciadores.getLinea(), instanciadores.getVerificadorLinea(), instanciadores.getReduccionLinea(), movilizar.getCaracteresUsados(), MovimientoEstado);
                     }
-                }else if(Character.isDigit(verificadorLinea)){
+                }//Si es digito ingresamos a posibilidad de numero o digito
+                else if(Character.isDigit(verificadorLinea)){
                     NumeroDecimal.numeroDecimalInicio(linea,MovimientoEstado);
                     reduccionLinea=linea.substring(movilizar.getCaracteresUsados(), linea.length());
-                    pasadorDatos(linea,reduccionLinea,verificadorLinea);
-                    while(movilizar.getCaracteresUsados()<linea.length()){
+                    pasadorDatos(linea,reduccionLinea,verificadorLinea);//sirve para enviar datos a instanciador de repitencia
+                    while(movilizar.getCaracteresUsados()<linea.length()){//repetimos instancia de automatas
                         CodigoCondicionalRepetidoAutomata.codigoAutomataRepitencia(instanciadores.getLinea(), instanciadores.getVerificadorLinea(), instanciadores.getReduccionLinea(), movilizar.getCaracteresUsados(), MovimientoEstado);
                     }
-                }else if(comprobarPunto.equals("+")|comprobarPunto.equals("-")|comprobarPunto.equals("*")|comprobarPunto.equals("/")|comprobarPunto.equals("%")){
+                }//Si es +-*/ entre signos parecidos significa que entra a operacion
+                else if(comprobarPunto.equals("+")|comprobarPunto.equals("-")|comprobarPunto.equals("*")|comprobarPunto.equals("/")|comprobarPunto.equals("%")){
                     Operador.operadorInicio(linea,MovimientoEstado);
                     reduccionLinea=linea.substring(movilizar.getCaracteresUsados(), linea.length());
-                    pasadorDatos(linea,reduccionLinea,verificadorLinea);
-                    while(movilizar.getCaracteresUsados()<linea.length()){
+                    pasadorDatos(linea,reduccionLinea,verificadorLinea);//sirve para enviar datos a instanciador de repitencia
+                    while(movilizar.getCaracteresUsados()<linea.length()){//repetimos instancia de automatas
                         CodigoCondicionalRepetidoAutomata.codigoAutomataRepitencia(instanciadores.getLinea(), instanciadores.getVerificadorLinea(), instanciadores.getReduccionLinea(), movilizar.getCaracteresUsados(), MovimientoEstado);
                     }  
-                }else if(comprobarPunto.equals(".")|comprobarPunto.equals(",")|comprobarPunto.equals(";")|comprobarPunto.equals(".")){
+                }//si es . , ; entre signos parecidos significa que entra a puntuacion 
+                else if(comprobarPunto.equals(".")|comprobarPunto.equals(",")|comprobarPunto.equals(";")|comprobarPunto.equals(".")){
                     Puntuacion.puntuacionInicio(linea,MovimientoEstado);
                     reduccionLinea=linea.substring(movilizar.getCaracteresUsados(), linea.length());
-                    pasadorDatos(linea,reduccionLinea,verificadorLinea);
-                    while(movilizar.getCaracteresUsados()<linea.length()){
+                    pasadorDatos(linea,reduccionLinea,verificadorLinea);//sirve para enviar datos a instanciador de repitencia
+                    while(movilizar.getCaracteresUsados()<linea.length()){//repetimos instancia de automatas
                         CodigoCondicionalRepetidoAutomata.codigoAutomataRepitencia(instanciadores.getLinea(), instanciadores.getVerificadorLinea(), instanciadores.getReduccionLinea(), movilizar.getCaracteresUsados(), MovimientoEstado);
                     }
-                }else if(comprobarPunto.equals("(")|comprobarPunto.equals(")")|comprobarPunto.equals("[")|comprobarPunto.equals("]")|comprobarPunto.equals("{")|comprobarPunto.equals("}")){
+                }//si es ( ) [ { entre signos parecidos significa que entramos a agrupacion
+                else if(comprobarPunto.equals("(")|comprobarPunto.equals(")")|comprobarPunto.equals("[")|comprobarPunto.equals("]")|comprobarPunto.equals("{")|comprobarPunto.equals("}")){
                     Agrupacion.agrupacionInicio(linea,MovimientoEstado);
                     reduccionLinea=linea.substring(movilizar.getCaracteresUsados(), linea.length());
-                    pasadorDatos(linea,reduccionLinea,verificadorLinea);
-                    while(movilizar.getCaracteresUsados()<linea.length()){
+                    pasadorDatos(linea,reduccionLinea,verificadorLinea);//sirve para enviar datos a instanciador de repitencia
+                    while(movilizar.getCaracteresUsados()<linea.length()){//repetimos instancia de automatas
                         CodigoCondicionalRepetidoAutomata.codigoAutomataRepitencia(instanciadores.getLinea(), instanciadores.getVerificadorLinea(), instanciadores.getReduccionLinea(), movilizar.getCaracteresUsados(), MovimientoEstado);
                     }
-                }
-                
+                }else{
+                    try {
+                        //cargamos reporte de error
+                        movilizar.setCadenaUsada(Character.toString(verificadorLinea));
+                        movilizar.setCaracteresUsados(1);
+                        cargarError.cargarReporte();
+                        movilizar.setCondiconalError(1);
+                        reduccionLinea=linea.substring(movilizar.getCaracteresUsados(), linea.length());
+                        pasadorDatos(linea,reduccionLinea,verificadorLinea);//sirve para enviar datos a instanciador de repitencia
+                        //señalizaos error
+                        MovimientoEstado.setText(MovimientoEstado.getText()+"------------Error------------ al usar "+movilizar.getCadenaUsada()+"\n");
+                        while(movilizar.getCaracteresUsados()<linea.length()){//repetimos instancia de automatas
+                            CodigoCondicionalRepetidoAutomata.codigoAutomataRepitencia(instanciadores.getLinea(), instanciadores.getVerificadorLinea(), instanciadores.getReduccionLinea(), movilizar.getCaracteresUsados(), MovimientoEstado);
+                        }
+                    } catch (FileNotFoundException ex) {
+                        Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }             
             }
             if(movilizar.getCondiconalError()==1){
+                //si hay error solo carga esta tabla
                 ReporteErrores.completarTabla(errorEstablecido, ReporteError);
             }else if(movilizar.getCondiconalError()==0){
+                //si no hay errores cargamos las tablas correctas
                 RecuentoLexemas.completarTabla(lexemaEstablecido, RecuentoLexema);
                 ReporteTokens.completarTabla(tokenEstablecido, ReportToken);
             }
@@ -327,12 +360,15 @@ public class Inicio extends javax.swing.JFrame {
         
     }//GEN-LAST:event_analizarTextoActionPerformed
     private void inicializadorValores(){
+        //creamos array list para reportes
         errorEstablecido = new ArrayList<>();  
         lexemaEstablecido = new ArrayList<>();   
         tokenEstablecido = new ArrayList<>(); 
+        //llamamos a que se complete la tabla 
         ReporteErrores.completarTabla(errorEstablecido, ReporteError);
         RecuentoLexemas.completarTabla(lexemaEstablecido, RecuentoLexema);
         ReporteTokens.completarTabla(tokenEstablecido, ReportToken);
+        //reiniciamos valores
         movilizar.setCondiconalError(0);
         MovimientoEstado.setText("");
         movilizar.setCaracteresUsados(0);
@@ -341,27 +377,32 @@ public class Inicio extends javax.swing.JFrame {
         movilizar.setColumna(0);
     }
     public void pasadorDatos(String linea, String reduccionLinea, char verificadorLinea){
+        //llamamos a instanciadores para que se modifiquen según sea el caso solo pasando parametros
         instanciadores.setLinea(linea);
         instanciadores.setReduccionLinea(reduccionLinea);
         instanciadores.setVerificadorLinea(verificadorLinea);
     }
     private void buscarCadenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarCadenaActionPerformed
-        String valorBusqueda,textoArea,almacenadorPalabra;
-        valorBusqueda= buscarText.getText();
+        String valorBusqueda,textoArea,almacenadorPalabra;//creamos variables
+        valorBusqueda= buscarText.getText();//llamamos texto de entrada
         int localizador=0;
-        if (valorBusqueda.length() >= 1) {       
+        if (valorBusqueda.length() >= 1) {   
+            //pintamos dando luz a la letra
             DefaultHighlighter.DefaultHighlightPainter highlightPainter = new DefaultHighlighter.DefaultHighlightPainter(Color.RED);
+            //indicamos a que es lo que daríamos luz
             Highlighter h = CargaArchivo.getHighlighter();
-            h.removeAllHighlights();
-            textoArea=CargaArchivo.getText();
-            for (int i = 0; i < textoArea.length(); i++) {
-                if(textoArea.charAt(i)==valorBusqueda.charAt(0)){
+            h.removeAllHighlights();//removemos todas las luces que tiene
+            textoArea=CargaArchivo.getText();//pasamos a string el texto
+            for (int i = 0; i < textoArea.length(); i++) {//indicamos que si lea todas las letras del text area
+                if(textoArea.charAt(i)==valorBusqueda.charAt(0)){//si contiene el primer caracter continua
+                    //reiniciamos valores
                     almacenadorPalabra="";
                     localizador=i;
                     for (int j = 0; j < valorBusqueda.length(); j++) {
-                        if(textoArea.charAt(i)==valorBusqueda.charAt(j)){ 
+                        if(textoArea.charAt(i)==valorBusqueda.charAt(j)){ //verificamos que todos los siguientes caracteres coincidan
                             almacenadorPalabra=almacenadorPalabra+Character.toString(valorBusqueda.charAt(j));
                             if (valorBusqueda.equals(almacenadorPalabra)) {
+                                //si cumple con que todos los caracteres sean iguales pintamos todo el texto buscado de lo contrario no
                                 try {
                                     h.addHighlight(localizador, localizador+valorBusqueda.length(), highlightPainter);
                                 } catch (BadLocationException ex) {
@@ -375,9 +416,9 @@ public class Inicio extends javax.swing.JFrame {
             }
             
         } else {
+            //indicamos mensaje de error
             JOptionPane.showMessageDialog(null, "Primero ingresa una cadena para ser leída");
         }
-        //CargaArchivo.setText(CargaArchivo.getText().replaceAll(valorBusqueda, espacio));
     }//GEN-LAST:event_buscarCadenaActionPerformed
 
     private void guardarArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarArchivoActionPerformed

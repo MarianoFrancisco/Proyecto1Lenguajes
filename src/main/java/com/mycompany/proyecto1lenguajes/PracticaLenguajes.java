@@ -24,8 +24,10 @@ public class PracticaLenguajes {
         // Clase principal y llamamos el frame
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                //inicializamos estructuradores de datos
                 MovilizadorDatos.crearMovilizador();
                 DatosInstanciadores.crearDatosInstanciadores();
+                //iniciamos frame inicio
                 new Inicio().setVisible(true);
             }
         });

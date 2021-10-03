@@ -18,17 +18,19 @@ import java.util.ArrayList;
  */
 public class CargarToken {
     public ArrayList<ReporteTokensObjeto> cargarToken() throws FileNotFoundException,IOException,ClassNotFoundException{
-        //definimos los espacios que ocupara en nuestro error al ser creado
-        int procesoReduccionColumna=movilizar.getCaracteresUsados()-movilizar.getCadenaUsada().length();
+        //definimos los espacios que ocupara en nuestro error al ser creado ycreamos array para reporte token
+        int procesoReduccionColumna=movilizar.getCaracteresUsados()-movilizar.getCadenaUsada().length();//indicamos operacion para establecer posicion de columna
+        //convertimos valores a strings
         String nombreToken=movilizar.getTokenProviniente();
         String lexema=movilizar.getCadenaUsada();
         String fila=movilizar.getFila()+"";
         String columna=procesoReduccionColumna+"";
+        //si la columna fuera 0 significa que es columna 1
         if (columna.equals("0")) {
             columna="1";
         }
         String espacio[]={nombreToken,lexema,fila,columna};
-        ReporteTokensObjeto tokens = CrearToken.crearToken(espacio);
+        ReporteTokensObjeto tokens = CrearToken.crearToken(espacio);//lenamos espacios en reporte token
         tokenEstablecido.add(tokens);//agreagamos un nuevo token
         return tokenEstablecido;
     }

@@ -10,7 +10,6 @@ import static com.mycompany.proyecto1lenguajes.frames.Inicio.*;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
 /**
@@ -28,6 +27,7 @@ public class Identificador {
         matriz[1][0]=1;
         matriz[1][1]=1;
     }
+    //inicializamos variables
     boolean lectura=true;
     int caracter=0, iterador = 0,estadoPresente=0, estadoIr=0,resultado=0,enviarReporte=0;//enteros
     char [] caract;//caracter
@@ -40,7 +40,7 @@ public class Identificador {
     }
     public int conseguirSiguiente(int estadoPasable,int caracter){
         resultado=2;
-        //verificamos caracter
+        //verificamos caracter menor igual a 1
         if(caracter>=0&&caracter<=1){
             resultado = matriz[estadoPasable][caracter];
         }   
@@ -56,35 +56,46 @@ public class Identificador {
         return resultado;
     }
     public void inicializacion(String linea,JTextArea movimiento){
+        //reseteamos variables
+        movilizar.setHayEspacio(0);
         enviarReporte=0;
         identificadorTotal="";
         iterador=0;
         caract=linea.toCharArray();//formato matriz
         estadoPresente=0;
         while((lectura)&&iterador<linea.length()&&resultado!=2){
+            //puede acceder únicamente si cumple con tener letras y estar en el abecedario
             if(Character.isSpaceChar(caract[iterador])){
+                //si tiene espacio finalizamos proceso
                 if(iterador==0){
                 }else{
                     lectura=false;
+                    movilizar.setHayEspacio(1);
                 }
             }else{
+                //llamamos al estado donde se va y pasamos caracter en determinado valor y el estado donde nos encontramos
                 estadoIr= conseguirSiguiente(estadoPresente,comprobarExistencia(caract[iterador]));
+                //mensaje de movilidad
                 movimiento.setText(movimiento.getText()+"Me movi de estado --> "+estadoPresente+" hacia --> "+estadoIr+" con caracter: "+caract[iterador]+"\n");
                 estadoPresente=estadoIr;
         }
         if(resultado==2){
-            movimiento.setText(movimiento.getText()+"Error \n");
+            movimiento.setText(movimiento.getText()+"------------Error------------ \n");
             enviarReporte=1;
         }  
+        //estructuramos cadena usada
         identificadorTotal=identificadorTotal+Character.toString(caract[iterador]);
         
         iterador++;
         }
+        movimiento.setText(movimiento.getText()+"------------ Al usar "+identificadorTotal+" ----------\n");
+        //modificamos valores a enviar a tablas
         movilizar.setColumna(iterador);
         movilizar.setCaracteresUsados(movilizar.getCaracteresUsados()+iterador);
         movilizar.setCadenaUsada(identificadorTotal.replaceAll(" ", ""));
         if(enviarReporte==1){
             try {
+                //cargamos reporte de error
                 cargarError.cargarReporte();
                 movilizar.setCondiconalError(1);
             } catch (IOException ex) {
@@ -95,6 +106,7 @@ public class Identificador {
         }else{
             movilizar.setTokenProviniente("Identificador");
             try {
+                //cargamos reporte tabla lexema y token
                 cargarLexema.cargarLexema();
                 cargarToken.cargarToken();
             } catch (IOException ex) {
