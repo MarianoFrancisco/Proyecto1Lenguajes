@@ -7,6 +7,7 @@ package com.mycompany.proyecto1lenguajes;
 
 import com.mycompany.proyecto1lenguajes.Controladores.DatosInstanciadores;
 import com.mycompany.proyecto1lenguajes.Controladores.MovilizadorDatos;
+import com.mycompany.proyecto1lenguajes.frames.BusquedaCadena;
 import com.mycompany.proyecto1lenguajes.frames.Inicio;
 
 
@@ -25,10 +26,11 @@ public class PracticaLenguajes {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 //inicializamos estructuradores de datos
-                MovilizadorDatos.crearMovilizador();
-                DatosInstanciadores.crearDatosInstanciadores();
+                MovilizadorDatos.crearMovilizador();//llamamos a movilizar datos
+                DatosInstanciadores.crearDatosInstanciadores();//llamamos instanciadores
+                BusquedaCadena.iniciarBusqueda();  //caramos frame de busqueda
                 //iniciamos frame inicio
-                new Inicio().setVisible(true);
+                new Inicio().setVisible(true);      
             }
         });
     }

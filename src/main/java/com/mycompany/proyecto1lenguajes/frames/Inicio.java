@@ -19,6 +19,7 @@ import com.mycompany.proyecto1lenguajes.Controladores.CodigoCondicionalRepetidoA
 import static com.mycompany.proyecto1lenguajes.Controladores.DatosInstanciadores.instanciadores;
 import com.mycompany.proyecto1lenguajes.RegistroTablas.*;
 import com.mycompany.proyecto1lenguajes.RegistroTablas.ReporteErrores;
+import static com.mycompany.proyecto1lenguajes.frames.BusquedaCadena.resultadoBusqueda;
 import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.File;
@@ -98,18 +99,14 @@ public class Inicio extends javax.swing.JFrame {
         setTitle("Inicio");
 
         jPanel1.setBackground(new java.awt.Color(0, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Engravers MT", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Reportes de tokens");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 370, -1, -1));
 
         CargaArchivo.setColumns(20);
         CargaArchivo.setRows(5);
         jScrollPane1.setViewportView(CargaArchivo);
-
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 650, 270));
 
         cargarArchivo.setFont(new java.awt.Font("Engravers MT", 0, 12)); // NOI18N
         cargarArchivo.setForeground(new java.awt.Color(0, 0, 0));
@@ -119,7 +116,6 @@ public class Inicio extends javax.swing.JFrame {
                 cargarArchivoActionPerformed(evt);
             }
         });
-        jPanel1.add(cargarArchivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
 
         analizarTexto.setFont(new java.awt.Font("Engravers MT", 0, 12)); // NOI18N
         analizarTexto.setForeground(new java.awt.Color(0, 0, 0));
@@ -129,7 +125,6 @@ public class Inicio extends javax.swing.JFrame {
                 analizarTextoActionPerformed(evt);
             }
         });
-        jPanel1.add(analizarTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, -1));
 
         buscarCadena.setFont(new java.awt.Font("Engravers MT", 0, 12)); // NOI18N
         buscarCadena.setForeground(new java.awt.Color(0, 0, 0));
@@ -139,8 +134,6 @@ public class Inicio extends javax.swing.JFrame {
                 buscarCadenaActionPerformed(evt);
             }
         });
-        jPanel1.add(buscarCadena, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 10, -1, -1));
-        jPanel1.add(buscarText, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 10, 180, 20));
 
         guardarArchivo.setFont(new java.awt.Font("Engravers MT", 0, 12)); // NOI18N
         guardarArchivo.setForeground(new java.awt.Color(0, 0, 0));
@@ -150,17 +143,13 @@ public class Inicio extends javax.swing.JFrame {
                 guardarArchivoActionPerformed(evt);
             }
         });
-        jPanel1.add(guardarArchivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, -1, -1));
 
         MovimientoEstado.setColumns(20);
         MovimientoEstado.setRows(5);
         jScrollPane2.setViewportView(MovimientoEstado);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 80, 450, 270));
-
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Mariano");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 630, -1, -1));
 
         ReportToken.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -175,8 +164,6 @@ public class Inicio extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(ReportToken);
 
-        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 400, 410, 210));
-
         RecuentoLexema.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -189,8 +176,6 @@ public class Inicio extends javax.swing.JFrame {
             }
         ));
         jScrollPane4.setViewportView(RecuentoLexema);
-
-        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 400, 350, 210));
 
         ReporteError.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -205,27 +190,96 @@ public class Inicio extends javax.swing.JFrame {
         ));
         jScrollPane6.setViewportView(ReporteError);
 
-        jPanel1.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 350, 210));
-
         jLabel5.setFont(new java.awt.Font("Engravers MT", 0, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Texto Cargado");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Engravers MT", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Movimiento de estado");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 50, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Engravers MT", 0, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Reporte de errores");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Engravers MT", 0, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Recuento de lexemas");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 370, -1, -1));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(cargarArchivo)
+                .addGap(44, 44, 44)
+                .addComponent(analizarTexto)
+                .addGap(37, 37, 37)
+                .addComponent(guardarArchivo)
+                .addGap(170, 170, 170)
+                .addComponent(buscarCadena)
+                .addGap(35, 35, 35)
+                .addComponent(buscarText, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(310, 310, 310)
+                .addComponent(jLabel5)
+                .addGap(460, 460, 460)
+                .addComponent(jLabel6))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(100, 100, 100)
+                .addComponent(jLabel7)
+                .addGap(226, 226, 226)
+                .addComponent(jLabel8)
+                .addGap(226, 226, 226)
+                .addComponent(jLabel2))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(1220, 1220, 1220)
+                .addComponent(jLabel3))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cargarArchivo)
+                    .addComponent(analizarTexto)
+                    .addComponent(guardarArchivo)
+                    .addComponent(buscarCadena)
+                    .addComponent(buscarText, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6))
+                .addGap(15, 15, 15)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel2))
+                .addGap(15, 15, 15)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addComponent(jLabel3))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -382,24 +436,32 @@ public class Inicio extends javax.swing.JFrame {
         instanciadores.setReduccionLinea(reduccionLinea);
         instanciadores.setVerificadorLinea(verificadorLinea);
     }
+    private void guardarArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarArchivoActionPerformed
+        ExportarArchivo.exportarArchivo(CargaArchivo);//enviamos parametro para guardar archivo texto
+    }//GEN-LAST:event_guardarArchivoActionPerformed
+
     private void buscarCadenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarCadenaActionPerformed
-        String valorBusqueda,textoArea,almacenadorPalabra;//creamos variables
+        String valorBusqueda,textoArea,almacenadorPalabra;//creamos variables      
         valorBusqueda= buscarText.getText();//llamamos texto de entrada
-        int localizador=0;
-        if (valorBusqueda.length() >= 1) {   
+        int localizador=0,interruptor=0;
+        if (valorBusqueda.length() >= 1) {
             //pintamos dando luz a la letra
             DefaultHighlighter.DefaultHighlightPainter highlightPainter = new DefaultHighlighter.DefaultHighlightPainter(Color.RED);
             //indicamos a que es lo que daríamos luz
-            Highlighter h = CargaArchivo.getHighlighter();
-            h.removeAllHighlights();//removemos todas las luces que tiene
             textoArea=CargaArchivo.getText();//pasamos a string el texto
+            resultadoBusqueda.setText(textoArea);
+            Highlighter h = resultadoBusqueda.getHighlighter();
+            h.removeAllHighlights();//removemos todas las luces que tiene
+            
             for (int i = 0; i < textoArea.length(); i++) {//indicamos que si lea todas las letras del text area
                 if(textoArea.charAt(i)==valorBusqueda.charAt(0)){//si contiene el primer caracter continua
                     //reiniciamos valores
                     almacenadorPalabra="";
                     localizador=i;
+                    interruptor=textoArea.length()-i;//interruptor para que no siga repitiendo la secuencia si no cuenta con suficientes caracteres al final
                     for (int j = 0; j < valorBusqueda.length(); j++) {
-                        if(textoArea.charAt(i)==valorBusqueda.charAt(j)){ //verificamos que todos los siguientes caracteres coincidan
+                        
+                        if(textoArea.charAt(i)==valorBusqueda.charAt(j)&&interruptor>=valorBusqueda.length()){ //verificamos que todos los siguientes caracteres coincidan
                             almacenadorPalabra=almacenadorPalabra+Character.toString(valorBusqueda.charAt(j));
                             if (valorBusqueda.equals(almacenadorPalabra)) {
                                 //si cumple con que todos los caracteres sean iguales pintamos todo el texto buscado de lo contrario no
@@ -409,21 +471,20 @@ public class Inicio extends javax.swing.JFrame {
                                     Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
                                 }
                             }
-                            i++;      
+                            i++;
+                        }else{
+                            j=valorBusqueda.length();
                         }
                     }
                 }
             }
-            
+            BusquedaCadena.visible();//hacemos visible la busqueda de cadena
         } else {
             //indicamos mensaje de error
             JOptionPane.showMessageDialog(null, "Primero ingresa una cadena para ser leída");
         }
+        
     }//GEN-LAST:event_buscarCadenaActionPerformed
-
-    private void guardarArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarArchivoActionPerformed
-        ExportarArchivo.exportarArchivo(CargaArchivo);//enviamos parametro para guardar archivo texto
-    }//GEN-LAST:event_guardarArchivoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JTextArea CargaArchivo;
