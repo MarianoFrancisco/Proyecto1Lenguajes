@@ -7,6 +7,7 @@ package com.mycompany.proyecto1lenguajes.Automatas;
 
 import static com.mycompany.proyecto1lenguajes.Controladores.MovilizadorDatos.movilizar;
 import static com.mycompany.proyecto1lenguajes.frames.Inicio.*;
+import static com.mycompany.proyecto1lenguajes.frames.RecuperacionErrores.recuperacionErrores;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -98,6 +99,9 @@ public class Identificador {
                 //cargamos reporte de error
                 cargarError.cargarReporte();
                 movilizar.setCondiconalError(1);
+                //modificamos condicional error para detectar que cadenas agrupar y modificamos la cadena error
+                movilizar.setCondicionalRecuperacion(1);
+                movilizar.setCadenaError(movilizar.getCadenaError()+movilizar.getCadenaUsada());
             } catch (IOException ex) {
                 Logger.getLogger(Identificador.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {
@@ -109,6 +113,16 @@ public class Identificador {
                 //cargamos reporte tabla lexema y token
                 cargarLexema.cargarLexema();
                 cargarToken.cargarToken();
+                //verificamos si tenemos anteriormente un error entonces modificamos texto en area recuperacion
+                if (movilizar.getCondicionalRecuperacion()==1) {
+                    movilizar.setCondicionalRecuperacion(0);//reiniciamos condicional recuperacion
+                    String cadenaUsada=movilizar.getCadenaError()+movilizar.getCadenaUsada();
+                    //modificamos texto
+                    recuperacionErrores.setText(recuperacionErrores.getText()+cadenaUsada+" <--- Error en "+movilizar.getCadenaError()+" pero detecta token Identificador = "+movilizar.getCadenaUsada()+" \n");
+                    movilizar.setCadenaError("");//reseteamos cadena error
+                }else{
+                    //no pasa nada 
+                }
             } catch (IOException ex) {
                 Logger.getLogger(Identificador.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {

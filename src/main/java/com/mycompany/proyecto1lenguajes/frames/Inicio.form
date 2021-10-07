@@ -45,24 +45,6 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
-                  <Component id="cargarArchivo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="44" pref="44" max="-2" attributes="0"/>
-                  <Component id="analizarTexto" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="37" pref="37" max="-2" attributes="0"/>
-                  <Component id="guardarArchivo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="170" pref="170" max="-2" attributes="0"/>
-                  <Component id="buscarCadena" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="35" pref="35" max="-2" attributes="0"/>
-                  <Component id="buscarText" min="-2" pref="180" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="310" pref="310" max="-2" attributes="0"/>
-                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="460" pref="460" max="-2" attributes="0"/>
-                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
                   <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="650" max="-2" attributes="0"/>
                   <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
@@ -71,9 +53,9 @@
               <Group type="102" attributes="0">
                   <EmptySpace min="100" pref="100" max="-2" attributes="0"/>
                   <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="226" pref="226" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="233" max="-2" attributes="0"/>
                   <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="226" pref="226" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="354" max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
@@ -85,8 +67,32 @@
                   <Component id="jScrollPane3" min="-2" pref="410" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
-                  <EmptySpace min="1220" pref="1220" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                  <Component id="buscarCadena1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="937" max="-2" attributes="0"/>
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
+                  <Component id="cargarArchivo" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="481" max="-2" attributes="0"/>
+                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                          <Component id="guardarArchivo" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="analizarTexto" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="180" max="-2" attributes="0"/>
+                          <Component id="buscarCadena" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="35" pref="35" max="-2" attributes="0"/>
+                          <Component id="buscarText" min="-2" pref="180" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
           </Group>
         </DimensionLayout>
@@ -95,36 +101,48 @@
               <Group type="102" attributes="0">
                   <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="cargarArchivo" min="-2" max="-2" attributes="0"/>
-                      <Component id="analizarTexto" min="-2" max="-2" attributes="0"/>
-                      <Component id="guardarArchivo" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="cargarArchivo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="guardarArchivo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="analizarTexto" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <Component id="buscarCadena" min="-2" max="-2" attributes="0"/>
                       <Component id="buscarText" min="-2" pref="20" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="19" pref="19" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="16" pref="16" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="15" pref="15" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jScrollPane1" min="-2" pref="270" max="-2" attributes="0"/>
                       <Component id="jScrollPane2" min="-2" pref="270" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                  <EmptySpace min="17" pref="17" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="15" pref="15" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jScrollPane6" min="-2" pref="210" max="-2" attributes="0"/>
                       <Component id="jScrollPane4" min="-2" pref="210" max="-2" attributes="0"/>
                       <Component id="jScrollPane3" min="-2" pref="210" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="buscarCadena1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
           </Group>
         </DimensionLayout>
@@ -161,6 +179,9 @@
         </Container>
         <Component class="javax.swing.JButton" name="cargarArchivo">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Engravers MT" size="12" style="0"/>
             </Property>
@@ -175,6 +196,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="analizarTexto">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="66" red="0" type="rgb"/>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Engravers MT" size="12" style="0"/>
             </Property>
@@ -189,6 +213,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="buscarCadena">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="66" red="0" type="rgb"/>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Engravers MT" size="12" style="0"/>
             </Property>
@@ -205,6 +232,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="guardarArchivo">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="ff" type="rgb"/>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Engravers MT" size="12" style="0"/>
             </Property>
@@ -356,6 +386,23 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Recuento de lexemas"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="buscarCadena1">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="66" red="0" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Engravers MT" size="12" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="ver rrecuperaci&#xf3;n de errores"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buscarCadena1ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

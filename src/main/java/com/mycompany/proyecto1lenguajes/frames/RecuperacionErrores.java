@@ -9,21 +9,21 @@ package com.mycompany.proyecto1lenguajes.frames;
  *
  * @author Mariano
  */
-public class BusquedaCadena extends javax.swing.JFrame {
+public class RecuperacionErrores extends javax.swing.JFrame {
 
     /**
      * Creates new form BusquedaCadena
      */
     //creamos frame estatico para no tener que crear nuevos cada vez
-    public static BusquedaCadena buscarCadena;
-    public static void iniciarBusqueda(){
-        buscarCadena=new BusquedaCadena();
+    public static RecuperacionErrores recuperacion;
+    public static void iniciarRecuperacion(){
+        recuperacion=new RecuperacionErrores();
     }
     //creamos metodo para hacer visible
     public static void visible(){
-        buscarCadena.setVisible(true);
+        recuperacion.setVisible(true);
     }
-    public BusquedaCadena() {
+    public RecuperacionErrores() {
         initComponents();//iniciamos componentes
         this.setLocationRelativeTo(null);//centramos
     }
@@ -39,7 +39,7 @@ public class BusquedaCadena extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        resultadoBusqueda = new javax.swing.JTextArea();
+        recuperacionErrores = new javax.swing.JTextArea();
         buscar = new javax.swing.JLabel();
         Buscar = new javax.swing.JButton();
 
@@ -49,13 +49,13 @@ public class BusquedaCadena extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
         jPanel1.setForeground(new java.awt.Color(0, 0, 0));
 
-        resultadoBusqueda.setColumns(20);
-        resultadoBusqueda.setRows(5);
-        jScrollPane1.setViewportView(resultadoBusqueda);
+        recuperacionErrores.setColumns(20);
+        recuperacionErrores.setRows(5);
+        jScrollPane1.setViewportView(recuperacionErrores);
 
         buscar.setFont(new java.awt.Font("Engravers MT", 0, 12)); // NOI18N
         buscar.setForeground(new java.awt.Color(0, 0, 0));
-        buscar.setText("Busqueda de cadena");
+        buscar.setText("Recuperación de  Errores");
 
         Buscar.setBackground(new java.awt.Color(255, 0, 0));
         Buscar.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
@@ -111,7 +111,7 @@ public class BusquedaCadena extends javax.swing.JFrame {
 
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
         //regresar a granja
-        buscarCadena.setVisible(false);
+        recuperacion.setVisible(false);
     }//GEN-LAST:event_BuscarActionPerformed
 
     /**
@@ -123,6 +123,6 @@ public class BusquedaCadena extends javax.swing.JFrame {
     private javax.swing.JLabel buscar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    public static javax.swing.JTextArea resultadoBusqueda;
+    public static javax.swing.JTextArea recuperacionErrores;
     // End of variables declaration//GEN-END:variables
 }

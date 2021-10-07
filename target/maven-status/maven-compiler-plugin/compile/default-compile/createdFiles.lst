@@ -4,8 +4,10 @@ com\mycompany\proyecto1lenguajes\PracticaLenguajes.class
 com\mycompany\proyecto1lenguajes\CargadorObjetos\CargarLexema.class
 com\mycompany\proyecto1lenguajes\Archivos\CargaArchivo.class
 com\mycompany\proyecto1lenguajes\AlmacenadorReportes\CrearError.class
+com\mycompany\proyecto1lenguajes\frames\Inicio$5.class
 com\mycompany\proyecto1lenguajes\Automatas\Operador.class
 com\mycompany\proyecto1lenguajes\frames\Inicio$4.class
+com\mycompany\proyecto1lenguajes\frames\RecuperacionErrores$1.class
 com\mycompany\proyecto1lenguajes\AlmacenadorReportes\CrearLexema.class
 com\mycompany\proyecto1lenguajes\Automatas\NumeroDecimal.class
 com\mycompany\proyecto1lenguajes\Automatas\Puntuacion.class
@@ -14,6 +16,7 @@ com\mycompany\proyecto1lenguajes\Controladores\CodigoCondicionalRepetidoAutomata
 com\mycompany\proyecto1lenguajes\frames\Inicio$2.class
 com\mycompany\proyecto1lenguajes\AlmacenadorReportes\CrearToken.class
 com\mycompany\proyecto1lenguajes\Archivos\ExportarArchivo.class
+com\mycompany\proyecto1lenguajes\frames\RecuperacionErrores.class
 com\mycompany\proyecto1lenguajes\AlmacenadorReportes\ReporteErrorObjeto.class
 com\mycompany\proyecto1lenguajes\Controladores\DatosInstanciadores.class
 com\mycompany\proyecto1lenguajes\frames\Inicio$1.class

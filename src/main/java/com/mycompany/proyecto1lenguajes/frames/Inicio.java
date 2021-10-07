@@ -20,6 +20,7 @@ import static com.mycompany.proyecto1lenguajes.Controladores.DatosInstanciadores
 import com.mycompany.proyecto1lenguajes.RegistroTablas.*;
 import com.mycompany.proyecto1lenguajes.RegistroTablas.ReporteErrores;
 import static com.mycompany.proyecto1lenguajes.frames.BusquedaCadena.resultadoBusqueda;
+import static com.mycompany.proyecto1lenguajes.frames.RecuperacionErrores.recuperacionErrores;
 import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.File;
@@ -94,6 +95,7 @@ public class Inicio extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        buscarCadena1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Inicio");
@@ -108,6 +110,7 @@ public class Inicio extends javax.swing.JFrame {
         CargaArchivo.setRows(5);
         jScrollPane1.setViewportView(CargaArchivo);
 
+        cargarArchivo.setBackground(new java.awt.Color(255, 255, 102));
         cargarArchivo.setFont(new java.awt.Font("Engravers MT", 0, 12)); // NOI18N
         cargarArchivo.setForeground(new java.awt.Color(0, 0, 0));
         cargarArchivo.setText("Cargar Archivo");
@@ -117,6 +120,7 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
+        analizarTexto.setBackground(new java.awt.Color(0, 102, 255));
         analizarTexto.setFont(new java.awt.Font("Engravers MT", 0, 12)); // NOI18N
         analizarTexto.setForeground(new java.awt.Color(0, 0, 0));
         analizarTexto.setText("ANALIZAR TEXTO");
@@ -126,6 +130,7 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
+        buscarCadena.setBackground(new java.awt.Color(0, 102, 255));
         buscarCadena.setFont(new java.awt.Font("Engravers MT", 0, 12)); // NOI18N
         buscarCadena.setForeground(new java.awt.Color(0, 0, 0));
         buscarCadena.setText("Buscar cadena");
@@ -135,6 +140,7 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
+        guardarArchivo.setBackground(new java.awt.Color(255, 51, 51));
         guardarArchivo.setFont(new java.awt.Font("Engravers MT", 0, 12)); // NOI18N
         guardarArchivo.setForeground(new java.awt.Color(0, 0, 0));
         guardarArchivo.setText("Guardar Archivo");
@@ -206,26 +212,20 @@ public class Inicio extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Recuento de lexemas");
 
+        buscarCadena1.setBackground(new java.awt.Color(0, 102, 255));
+        buscarCadena1.setFont(new java.awt.Font("Engravers MT", 0, 12)); // NOI18N
+        buscarCadena1.setForeground(new java.awt.Color(0, 0, 0));
+        buscarCadena1.setText("ver rrecuperación de errores");
+        buscarCadena1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarCadena1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(cargarArchivo)
-                .addGap(44, 44, 44)
-                .addComponent(analizarTexto)
-                .addGap(37, 37, 37)
-                .addComponent(guardarArchivo)
-                .addGap(170, 170, 170)
-                .addComponent(buscarCadena)
-                .addGap(35, 35, 35)
-                .addComponent(buscarText, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(310, 310, 310)
-                .addComponent(jLabel5)
-                .addGap(460, 460, 460)
-                .addComponent(jLabel6))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -234,9 +234,9 @@ public class Inicio extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(100, 100, 100)
                 .addComponent(jLabel7)
-                .addGap(226, 226, 226)
+                .addGap(233, 233, 233)
                 .addComponent(jLabel8)
-                .addGap(226, 226, 226)
+                .addGap(354, 354, 354)
                 .addComponent(jLabel2))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
@@ -246,39 +246,66 @@ public class Inicio extends javax.swing.JFrame {
                 .addGap(40, 40, 40)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(1220, 1220, 1220)
+                .addGap(46, 46, 46)
+                .addComponent(buscarCadena1)
+                .addGap(937, 937, 937)
                 .addComponent(jLabel3))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(cargarArchivo)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addComponent(jLabel5)
+                        .addGap(481, 481, 481)
+                        .addComponent(jLabel6))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(guardarArchivo)
+                        .addGap(40, 40, 40)
+                        .addComponent(analizarTexto)
+                        .addGap(180, 180, 180)
+                        .addComponent(buscarCadena)
+                        .addGap(35, 35, 35)
+                        .addComponent(buscarText, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cargarArchivo)
-                    .addComponent(analizarTexto)
-                    .addComponent(guardarArchivo)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cargarArchivo)
+                        .addComponent(guardarArchivo)
+                        .addComponent(analizarTexto))
                     .addComponent(buscarCadena)
                     .addComponent(buscarText, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6))
+                .addGap(16, 16, 16)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel5))
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
+                .addGap(17, 17, 17)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel7)
+                        .addComponent(jLabel8))
                     .addComponent(jLabel2))
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addComponent(jLabel3))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel3))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buscarCadena1))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -429,6 +456,8 @@ public class Inicio extends javax.swing.JFrame {
         movilizar.setCadenaUsada("");
         movilizar.setFila(0);
         movilizar.setColumna(0);
+        recuperacionErrores.setText("");
+        movilizar.setCadenaError("");
     }
     public void pasadorDatos(String linea, String reduccionLinea, char verificadorLinea){
         //llamamos a instanciadores para que se modifiquen según sea el caso solo pasando parametros
@@ -483,8 +512,15 @@ public class Inicio extends javax.swing.JFrame {
             //indicamos mensaje de error
             JOptionPane.showMessageDialog(null, "Primero ingresa una cadena para ser leída");
         }
-        
     }//GEN-LAST:event_buscarCadenaActionPerformed
+
+    private void buscarCadena1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarCadena1ActionPerformed
+        if (movilizar.getCondiconalError()==1) {
+            RecuperacionErrores.visible(); //hacemos visible frame recuperacion errores
+        }else{
+            JOptionPane.showMessageDialog(null, "No hay errores en el último análisis");//identificamos que no surgieron errores
+        }
+    }//GEN-LAST:event_buscarCadena1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JTextArea CargaArchivo;
@@ -494,6 +530,7 @@ public class Inicio extends javax.swing.JFrame {
     public static javax.swing.JTable ReporteError;
     private javax.swing.JButton analizarTexto;
     private javax.swing.JButton buscarCadena;
+    private javax.swing.JButton buscarCadena1;
     private javax.swing.JTextField buscarText;
     private javax.swing.JButton cargarArchivo;
     private javax.swing.JButton guardarArchivo;

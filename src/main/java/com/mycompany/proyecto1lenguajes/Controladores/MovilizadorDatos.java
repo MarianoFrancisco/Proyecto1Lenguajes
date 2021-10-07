@@ -11,21 +11,22 @@ package com.mycompany.proyecto1lenguajes.Controladores;
  */
 public class MovilizadorDatos {
     //creamos variables
-    private int fila,columna,caracteresUsados,condiconalError,hayEspacio;
-    private String cadenaUsada,tokenProviniente;
+    private int fila,columna,caracteresUsados,condiconalError,hayEspacio,condicionalRecuperacion;
+    private String cadenaUsada,tokenProviniente,cadenaError;
     public static MovilizadorDatos movilizar;
     //constructor para movilizarme mis datos entre clases
 
-    public MovilizadorDatos(int fila, int columna, int caracteresUsados, int condiconalError, int hayEspacio, String cadenaUsada, String tokenProviniente) {
+    public MovilizadorDatos(int fila, int columna, int caracteresUsados, int condiconalError, int hayEspacio, int condicionalRecuperacion, String cadenaUsada, String tokenProviniente, String cadenaError) {
         this.fila = fila;
         this.columna = columna;
         this.caracteresUsados = caracteresUsados;
         this.condiconalError = condiconalError;
         this.hayEspacio = hayEspacio;
+        this.condicionalRecuperacion = condicionalRecuperacion;
         this.cadenaUsada = cadenaUsada;
         this.tokenProviniente = tokenProviniente;
+        this.cadenaError = cadenaError;
     }
-    
 
     //creamos gets y sets para modificar y hacer llamados
     public int getFila() {
@@ -83,9 +84,25 @@ public class MovilizadorDatos {
     public void setHayEspacio(int hayEspacio) {
         this.hayEspacio = hayEspacio;
     }
+
+    public int getCondicionalRecuperacion() {
+        return condicionalRecuperacion;
+    }
+
+    public void setCondicionalRecuperacion(int condicionalRecuperacion) {
+        this.condicionalRecuperacion = condicionalRecuperacion;
+    }
+
+    public String getCadenaError() {
+        return cadenaError;
+    }
+
+    public void setCadenaError(String cadenaError) {
+        this.cadenaError = cadenaError;
+    }
     
     //estructuramos creador de un valor MovilizadorDatos inicializandolo
     public static void crearMovilizador(){
-         movilizar= new MovilizadorDatos(0,0,0,0,0,"","");
+         movilizar= new MovilizadorDatos(0,0,0,0,0,0,"","","");
     }
 }

@@ -9,6 +9,7 @@ import com.mycompany.proyecto1lenguajes.Controladores.DatosInstanciadores;
 import com.mycompany.proyecto1lenguajes.Controladores.MovilizadorDatos;
 import com.mycompany.proyecto1lenguajes.frames.BusquedaCadena;
 import com.mycompany.proyecto1lenguajes.frames.Inicio;
+import com.mycompany.proyecto1lenguajes.frames.RecuperacionErrores;
 
 
 
@@ -28,7 +29,8 @@ public class PracticaLenguajes {
                 //inicializamos estructuradores de datos
                 MovilizadorDatos.crearMovilizador();//llamamos a movilizar datos
                 DatosInstanciadores.crearDatosInstanciadores();//llamamos instanciadores
-                BusquedaCadena.iniciarBusqueda();  //caramos frame de busqueda
+                BusquedaCadena.iniciarBusqueda();  //creamos frame de busqueda
+                RecuperacionErrores.iniciarRecuperacion(); //creamos frame de recuperacion errores
                 //iniciamos frame inicio
                 new Inicio().setVisible(true);      
             }
